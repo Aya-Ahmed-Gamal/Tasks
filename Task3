@@ -1,0 +1,95 @@
+package session5.task3;
+
+public class Person {
+  private String name;
+    private int age;
+
+public Person(String name, int age){
+    this.name=name;
+    this.age=age;
+
+}
+
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+
+    }
+}
+package session5.task3;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
+
+public class task3 {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+
+       int[] SortedNumbers = new int[5];
+        for (int i = 0; i < SortedNumbers.length; i++) {
+            SortedNumbers[i] = sc.nextInt();
+
+        }
+
+
+        for (int i = 0; i < SortedNumbers.length; i++) {
+            for (int j = i + 1; j < SortedNumbers.length; j++)
+                if (SortedNumbers[i] > SortedNumbers[j]) {
+                    int temp = SortedNumbers[i];
+                    SortedNumbers[i] = SortedNumbers[j];
+                    SortedNumbers[j] = temp;
+                }
+
+        }
+
+        out.println("The array list in sorted order is:");
+
+        for (int i = 0; i < SortedNumbers.length; i++) {
+            out.println(SortedNumbers[i]);
+        }
+
+       
+        ArrayList<Person> NameList = new ArrayList<>();
+        System.out.println("Enter the number of persons you want in your list");
+        int n=sc.nextInt();
+        for (int i=0;i<n;i++) {
+            System.out.println("Enter the age:");
+            int x = sc.nextInt();
+            if (x == 0) {
+                break;
+            }
+            System.out.println("Enter the name:");
+            String s = sc.next();
+
+            NameList.add(new Person(s, x));
+
+
+
+        }
+        for (Person p : NameList) {
+
+            System.out.println(p.getName()+" , "+p.getAge());
+
+        }
+
+    }
+}
+
+
