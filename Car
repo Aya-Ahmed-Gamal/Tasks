@@ -1,0 +1,141 @@
+package task1;
+
+public  abstract class car {
+   private String name;
+    private int model;
+
+    private static int CarsCount=0;
+    public car(){
+        this.CarsCount++;
+    };
+public car(String name, int model)
+{
+    this.name=name;
+    this.model=model;
+    this.CarsCount++;
+}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getModel() {
+        return model;
+    }
+
+    public void setModel(int model) {
+        this.model = model;
+    }
+
+    public abstract String getFuelType();
+
+    public static int getCarsCount() {
+        return CarsCount;
+    }
+
+}
+package task1;
+
+public class kia extends car{
+    private final int TankCapacity=45;
+    private final int MaxSpeed=320;
+    private boolean LockBrakingSystem;
+ public kia(){}
+ public kia ( String name, int model,boolean LockBrakingSystem)
+ {
+     super();
+     this.LockBrakingSystem=LockBrakingSystem;
+
+ }
+    public void setLockBrakingSystem(boolean lockBrakingSystem) {
+        LockBrakingSystem = lockBrakingSystem;
+    }
+
+    public boolean isLockBrakingSystem() {
+        return LockBrakingSystem;
+    }
+
+    public int getMaxSpeed() {
+        return MaxSpeed;
+    }
+
+    public int getTankCapacity() {
+        return TankCapacity;
+    }
+
+    @Override
+    public String getFuelType() {
+        return "Diesel";
+    }
+
+}
+package task1;
+
+
+public class toyota extends car{
+    private Boolean TrackingSystem;
+    private final int MaxSpeed=280;
+    private final int TankCapacity=80;
+private int no_seats;
+public toyota(){}
+public toyota(String name, int model, boolean TrackingSystem, int no_seats)
+{
+    super();
+    this.TrackingSystem=TrackingSystem;
+    this.no_seats=no_seats;
+}
+
+    public int getMaxSpeed() {
+        return MaxSpeed;
+    }
+
+    public int getTankCapacity() {
+        return TankCapacity;
+    }
+
+    public void setNo_seats(int no_seats) {
+        this.no_seats = no_seats;
+    }
+
+    public int getNo_seats() {
+        return no_seats;
+    }
+
+    public void setTrackingSystem(Boolean trackingSystem) {
+        this.TrackingSystem = trackingSystem;
+    }
+
+    public Boolean getTrackingSystem() {
+        return TrackingSystem;
+    }
+
+    @Override
+    public String getFuelType() {
+        return "renewable fuel";
+    }
+}
+package task1;
+
+public class main {
+    public static void main (String args[]){
+        toyota To=new toyota("Sienna", 2020, true,8);
+       System.out.println("The tank capacity of this car is "+To.getTankCapacity());
+        System.out.println("The Maximum speed of this car is "+To.getMaxSpeed());
+        System.out.println("The Tracking System of this car is "+ To.getTrackingSystem());
+        System.out.println("The Fuel Type of car "+To.getName()+" is "+To.getFuelType());
+kia ceed=new kia();
+ceed.setName("Seed Hatchback");;
+ceed.setModel(2017);
+ceed.setLockBrakingSystem(true);
+        System.out.println("The tank capacity of  car "+ceed.getName()+" is "+ceed.getTankCapacity());
+        System.out.println("The Braking System of car "+ceed.getName()+" is "+ceed.isLockBrakingSystem());
+        System.out.println("The Fuel type of car "+ceed.getName()+" is "+ceed.getFuelType());
+        System.out.println("The number of cars is "+car.getCarsCount());
+    }
+
+}
+
