@@ -1,0 +1,126 @@
+package session4;
+
+public interface Shape {
+    double getArea();
+    double  getPerimeter();
+    String getShapeName();
+
+}
+package session4;
+
+public class Square implements Shape{
+
+    private double side;
+    private String name;
+    public Square() {
+    }
+
+    public Square(double side, String name) {
+        this.side = side;
+        this.name = name;
+    }
+
+    @Override
+    public double getArea(){
+        return Math.pow(this.side,2);
+    }
+    @Override
+    public double getPerimeter(){
+        return 4*this.side;
+
+    }
+
+    public double getSide() {
+        return side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    @Override
+    public String getShapeName(){
+return this.name;
+    }
+
+}
+package session4;
+
+public class Circle implements Shape {
+    private Boolean isFilled;
+    private double radius;
+    private String name;
+
+    @Override
+    public double getArea() {
+        return Math.pow(this.radius, 2) * Math.PI;
+
+    }
+
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * this.radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public Boolean getFilled() {
+        return isFilled;
+    }
+
+    public void setFilled(Boolean filled) {
+        isFilled = filled;
+    }
+
+    public Circle() {
+    }
+
+    public Circle(Boolean isFilled, double radius, String name) {
+        this.isFilled = isFilled;
+        this.radius = radius;
+        this.name = name;
+    }
+
+    @Override
+    public String getShapeName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+package session4;
+
+public class main {
+    public static void displayInfo( Shape s)
+    {
+        System.out.println("The shape's name is "+ s.getShapeName());
+        System.out.println("The shape's area is "+s.getArea());
+        System.out.println("The shape's perimeter is "+s.getPerimeter());
+    }
+    public static void main(String args[]){
+        Circle circle=new Circle();
+        circle.setRadius(3);
+        circle.setName("C1");
+        System.out.println( "The area of the circle is "+circle.getArea());
+        System.out.println("The perimeter of the circle is "+ circle.getPerimeter());
+        Square sq=new Square(5,"Sq1");
+        System.out.println("The area of the square is "+sq.getArea());
+        System.out.println("The perimeter of the square is "+sq.getPerimeter());
+displayInfo(circle);
+displayInfo(sq);
+    }
+
+}
